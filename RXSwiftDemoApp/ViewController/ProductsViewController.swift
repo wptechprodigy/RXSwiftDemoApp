@@ -16,15 +16,16 @@ class ProductsViewController: UIViewController {
         return tableview
     }()
     
-    private var productViewModel: ProductViewModel?
+    private var productViewModel: ProductViewModel
     private var bag = DisposeBag()
     
     init(productViewModel: ProductViewModel) {
-        super.init(nibName: nil, bundle: nil)
         self.productViewModel = productViewModel
+        super.init(nibName: nil, bundle: nil)
     }
     
     required init?(coder: NSCoder) {
+        self.productViewModel = ProductViewModel()
         super.init(coder: coder)
     }
     
@@ -36,6 +37,22 @@ class ProductsViewController: UIViewController {
     }
     
     func bindTableData() {
+        // Bind items to table
+        productViewModel.items.bind(
+            to: productTableView.rx.items(
+                cellIdentifier: "cellID",
+                cellType: UITableViewCell.self)
+        ) { row, productModel, cell in
+            cell.textLabel?.text = productModel.title
+            cell.imageView?.image = UIImage(systemName: productModel.imageName)
+        }.disposed(by: bag)
         
+        // Bind a model selected handler
+        productTableView.rx.modelSelected(Product.self).bind { (product) in
+            debugPrint(product.title)
+        }.disposed(by: bag)
+        
+        // Fetch items using the ViewModel
+        productViewModel.fetchItems()
     }
 }
