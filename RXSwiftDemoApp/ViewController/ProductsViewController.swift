@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import RxSwift
 
 class ProductsViewController: UIViewController {
     
@@ -16,8 +17,9 @@ class ProductsViewController: UIViewController {
     }()
     
     private var productViewModel: ProductViewModel?
+    private var bag = DisposeBag()
     
-    init(productViewModel: ProductViewModel = ProductViewModel()) {
+    init(productViewModel: ProductViewModel) {
         super.init(nibName: nil, bundle: nil)
         self.productViewModel = productViewModel
     }
@@ -28,5 +30,12 @@ class ProductsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.addSubview(productTableView)
+        productTableView.frame = view.bounds
+        bindTableData()
+    }
+    
+    func bindTableData() {
+        
     }
 }
