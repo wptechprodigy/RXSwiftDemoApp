@@ -8,12 +8,14 @@
 import UIKit
 
 class ProductsViewController: UIViewController {
+    
+    private let productTableView: UITableView = {
+        let tableview = UITableView()
+        tableview.register(UITableViewCell.self, forCellReuseIdentifier: "cellID")
+        return tableview
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
     }
-
-
 }
-
