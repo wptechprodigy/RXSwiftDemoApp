@@ -120,13 +120,13 @@
 		045EE481261CD34E005B3C8D /* RXSwiftDemoApp */ = {
 			isa = PBXGroup;
 			children = (
+				045EE4D7261CD97B005B3C8D /* Resurces */,
+				045EE4D6261CD94F005B3C8D /* Controller */,
 				045EE4CC261CD6FE005B3C8D /* ViewModel */,
 				045EE4C3261CD688005B3C8D /* Model */,
 				045EE482261CD34E005B3C8D /* AppDelegate.swift */,
 				045EE484261CD34E005B3C8D /* SceneDelegate.swift */,
-				045EE486261CD34E005B3C8D /* ProductsViewController.swift */,
 				045EE488261CD34E005B3C8D /* Main.storyboard */,
-				045EE48B261CD351005B3C8D /* Assets.xcassets */,
 				045EE48D261CD351005B3C8D /* LaunchScreen.storyboard */,
 				045EE490261CD351005B3C8D /* Info.plist */,
 			);
@@ -165,6 +165,22 @@
 				045EE4CE261CD71C005B3C8D /* ProductViewModel.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		045EE4D6261CD94F005B3C8D /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				045EE486261CD34E005B3C8D /* ProductsViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		045EE4D7261CD97B005B3C8D /* Resurces */ = {
+			isa = PBXGroup;
+			children = (
+				045EE48B261CD351005B3C8D /* Assets.xcassets */,
+			);
+			path = Resurces;
 			sourceTree = "<group>";
 		};
 		ABC46BB1A9C5D28366E88153 /* Frameworks */ = {
